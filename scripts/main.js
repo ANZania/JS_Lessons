@@ -5,7 +5,5 @@ let deposit;
 let mission;
 let period;
 
-alert("Message");
+alert("Alert message");
 console.log("Console message");
-
-
