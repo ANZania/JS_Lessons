@@ -7,8 +7,8 @@ let period = 12;
 let budgetDay = money / 30;
 
 console.log( 'money is ' + typeof money );
-console.log( 'income is ' +typeof income );
-console.log( 'deposit is ' +typeof deposit );
+console.log( 'income is ' + typeof income );
+console.log( 'deposit is ' + typeof deposit );
 
 console.log( 'addExpenses length: ' + addExpenses.length );
 
