@@ -2,7 +2,7 @@
 
 let money = +prompt('Введите ваш ежемесячный доход: ');
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую: ');
-let deposit = prompt('Есть ли у вас депозит в банке? ', 'да/нет');
+let deposit = confirm('Есть ли у вас депозит в банке?');
 let expences1 = prompt('Введите обязательную статью расходов: ');
 let amount1 = +prompt('Во сколько это обойдётся? ');
 let expences2 = prompt('Введите обязательную статью расходов: ');
@@ -14,19 +14,6 @@ let mission = 100000;
 let budgetMounth = money - amount1 - amount2;
 let period = Math.ceil( mission / budgetMounth );
 let budgetDay = Math.floor( budgetMounth / 30 );
-switch (deposit) {
-    case 'Да':
-    case 'да':
-        deposit = true;
-        break;
-    case 'Нет':
-    case 'нет':
-        deposit = false;
-        break;
-    default:
-        console.log('Что-то пошло не так. Ошибка при вводе данных о депозите.');
-};
-
 
 console.log( 'Тип переменной money: ' + typeof money );
 console.log( 'Тип переменной income: ' +typeof income );
