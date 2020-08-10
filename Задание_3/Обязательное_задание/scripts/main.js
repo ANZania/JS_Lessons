@@ -1,19 +1,46 @@
 'use strict'
 
-let money = prompt('Введите ваш ежемесячный доход: ');
-let income = 'фриланс';
+let money = +prompt('Введите ваш ежемесячный доход: ');
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую: ');
-let deposit = prompt('Есть ли у вас депозит в банке? ');
+let deposit = prompt('Есть ли у вас депозит в банке? ', 'да/нет');
 let expences1 = prompt('Введите обязательную статью расходов: ');
-let amount1 = prompt('Во сколько это обойдётся? ');
+let amount1 = +prompt('Во сколько это обойдётся? ');
 let expences2 = prompt('Введите обязательную статью расходов: ');
-let amount2 = prompt('Во сколько это обойдётся? ');
+let amount2 = +prompt('Во сколько это обойдётся? ');
+
+let income = 'фриланс';
+let mission = 100000;
 
 let budgetMounth = money - amount1 - amount2;
-
-let mission = 100000;
 let period = Math.ceil( mission / budgetMounth );
 let budgetDay = Math.floor( budgetMounth / 30 );
+switch (deposit) {
+    case 'Да':
+    case 'да':
+        deposit = true;
+        break;
+    case 'Нет':
+    case 'нет':
+        deposit = false;
+        break;
+    default:
+        console.log('Что-то пошло не так. Ошибка при вводе данных о депозите.');
+};
+
+
+console.log( 'Тип переменной money: ' + typeof money );
+console.log( 'Тип переменной income: ' +typeof income );
+console.log( 'Тип переменной deposit: ' +typeof deposit );
+
+console.log( 'Длина строки addExpenses: ' + addExpenses.length );
+console.log( addExpenses.toLowerCase().split(', ') );
+
+console.log( 'Период равен: ' + period + ' месяцев' );
+console.log( 'Цель - заработать ' + mission + ' рублей' );
+
+console.log( 'Бюджет на день: ' + budgetDay );
+console.log( 'Бюджет на месяц: ' + budgetMounth );
+console.log( 'Цель будет достигнута за ' + period + ' месяцев' );
 
 if (budgetDay < 0) {
     console.log('Что-то пошло не так');
@@ -24,16 +51,3 @@ if (budgetDay < 0) {
 } else {
     console.log('У вас средний уровень дохода');
 }
-
-console.log( 'money is ' + typeof money );
-console.log( 'income is ' +typeof income );
-console.log( 'deposit is ' +typeof deposit );
-
-console.log( 'addExpenses length: ' + addExpenses.length );
-
-console.log( 'Период равен ' + period + ' месяцев' );
-console.log( 'Цель заработать ' + mission + ' рублей/долларов/гривен/юани' );
-
-console.log( addExpenses.toLowerCase().split(', ') );
-
-console.log( 'budgetDay: ' + budgetDay );
