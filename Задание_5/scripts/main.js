@@ -23,11 +23,11 @@ for ( let number = 1; number < 101; number++ ) {
     let multiplier = 2;
 
     for ( multiplier; multiplier < number; multiplier++ ) {
-        if ( number % multiplier === 0) {
+        if ( number % multiplier === 0 ) {
             break;
         };
     };
-    if ( multiplier === number && multiplier != 2) {
+    if ( multiplier === number || number === 1 ) {
         console.log( number + ' - делители этого числа: ' + '1 и ' + number );
     };
 }
