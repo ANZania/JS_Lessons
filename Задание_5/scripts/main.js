@@ -28,6 +28,6 @@ for ( let number = 1; number < 101; number++ ) {
         };
     };
     if ( multiplier === number && multiplier != 2) {
-        console.log( number + ' - делители этого числа: ' + '1' + number );
+        console.log( number + ' - делители этого числа: ' + '1 и ' + number );
     };
 }
