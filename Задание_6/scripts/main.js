@@ -10,10 +10,13 @@ const main = function () {
 
     const nextTry = function () {
         let isContinue = confirm( 'Хотите попробовать ещё раз?' );
+
         if ( isContinue ) {
             main();
+
         } else {
             alert( 'Игра окончена' );
+
         };
     };
 
@@ -28,6 +31,7 @@ const main = function () {
 
     const inputUserNum = function  () {
         userNum = prompt( 'Угадайте число от 1 до 100' );
+
         if ( userNum === null ) {
             startCond = false;
             return;
@@ -42,20 +46,24 @@ const main = function () {
 
     const checkUserNum = function () {
         if ( attempt > 0 ) {
-        inputUserNum();
+            inputUserNum();
             if ( startCond === false ) {
                 return;
             } else if ( +userNum === number ) {
                 startCond = false;
                 win = true;
+
                 return alert( 'Вы угадали!' );
+
             } else {
                 if ( userNum > number ) {
                     attempt -= 1;
                     alert( 'Загаданное число меньше. \nКоличество ваших попыток: ' + attempt );
+
                 } else if ( userNum < number ) {
                     attempt -= 1;
                     alert( 'Загаданное число больше. \nКоличество ваших попыток: ' + attempt );
+
                 };
 
                 checkUserNum();
@@ -68,6 +76,7 @@ const main = function () {
 
     if ( !isStart() ) {
         alert( 'Игра окончена' );
+
     } else {
         const start = function () {
             attempt = 10;
@@ -76,17 +85,20 @@ const main = function () {
             if ( startCond === false ) {
                 return;
             }
-        }
+        };
 
         start();
         
         if ( attemptLost ) {
             nextTry();
+
         } else if ( startCond === false && !win === true ) {
             alert( 'Игра окончена' );
+
         } else if ( win === true ) {
             nextTry();
         };
     };
 };
+
 main()
