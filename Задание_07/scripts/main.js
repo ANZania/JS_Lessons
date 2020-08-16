@@ -17,7 +17,7 @@ let appData = {
     asking: function () {
         let dialogCall = 0;
         let expenceName,
-            expenceValue;;
+            expenceValue;
 
         let addExpencesInput = prompt( 'Перечислите возможные статьи расходов за рассчитываемый период через запятую:' );
         appData.addExpenсes = addExpencesInput.toLowerCase().split(', ');
@@ -31,13 +31,17 @@ let appData = {
                 if ( appData.expences[ expenceName ] ) {
                     expenceValue = appData.expences[ expenceName ];
                 };
+
                 do {
                     appData.expences[ expenceName ] = prompt( 'Во сколько это обойдётся?' );
                 } while ( !isNumber( appData.expences[ expenceName ] ) );
+
                 appData.expences[ expenceName ] = +appData.expences[ expenceName ];
+
                 if ( expenceValue ) {
                     appData.expences[ expenceName ] += expenceValue;
                 };
+
                 dialogCall = 1;
             };
         };
@@ -60,10 +64,13 @@ let appData = {
     getStatusIncome: function () {
         if ( appData.budgetDay < 0 ) {
             return( 'Что-то пошло не так' );
+
         } else if ( appData.budgetDay >= 1200 ) {
             return( 'У вас высокий уровень дохода' );
+
         } else if ( appData.budgetDay < 600 ) {
             return( 'К сожалению, ваш уровень дохода ниже среднего' );
+            
         } else {
             return( 'У вас средний уровень дохода' );
         }
@@ -94,6 +101,7 @@ function isNumber ( n ) {
 
 const objectOutput = function (objectName) {
     console.log( 'Наша программа включает в себя данные: ' );
+
     for ( let key in objectName ) {
         console.log( key + ': ' + objectName[key] );
     };
@@ -104,8 +112,10 @@ console.log( 'Бюджет на день: ' + appData.budgetDay );
 
 if ( appData.period < 0 ) {
     console.log( 'Цель не будет достигнута' );
+
 } else {
     console.log( 'Цель будет достигнута за ' + appData.period + ' месяцев' );
+
 };
 
 console.log( appData.getStatusIncome( appData.budgetDay ) );
