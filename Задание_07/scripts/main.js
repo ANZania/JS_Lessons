@@ -16,7 +16,8 @@ let appData = {
     expencesMonth: 0,
     asking: function () {
         let dialogCall = 0;
-        let expenceName;
+        let expenceName,
+            expenceValue;;
 
         let addExpencesInput = prompt( 'Перечислите возможные статьи расходов за рассчитываемый период через запятую:' );
         appData.addExpenсes = addExpencesInput.toLowerCase().split(', ');
@@ -25,10 +26,18 @@ let appData = {
         if ( dialogCall === 0 ) {
             for ( let i = 0; i < 2; i++ ) {
                 expenceName = prompt( 'Введите обязательную статью расходов:' );
-                while ( !isNumber( appData.expences[ expenceName ] ) ) {
-                    appData.expences[ expenceName ] = prompt( 'Во сколько это обойдётся?' );
+                expenceValue = undefined;
+
+                if ( appData.expences[ expenceName ] ) {
+                    expenceValue = appData.expences[ expenceName ];
                 };
+                do {
+                    appData.expences[ expenceName ] = prompt( 'Во сколько это обойдётся?' );
+                } while ( !isNumber( appData.expences[ expenceName ] ) );
                 appData.expences[ expenceName ] = +appData.expences[ expenceName ];
+                if ( expenceValue ) {
+                    appData.expences[ expenceName ] += expenceValue;
+                };
                 dialogCall = 1;
             };
         };
@@ -83,10 +92,10 @@ function isNumber ( n ) {
     };
 };
 
-const appDataOutput = function () {
+const objectOutput = function (objectName) {
     console.log( 'Наша программа включает в себя данные: ' );
-    for ( let key in appData ) {
-        console.log( key + ': ' + appData[key] );
+    for ( let key in objectName ) {
+        console.log( key + ': ' + objectName[key] );
     };
 };
 
@@ -100,5 +109,4 @@ if ( appData.period < 0 ) {
 };
 
 console.log( appData.getStatusIncome( appData.budgetDay ) );
-appDataOutput();
-
+objectOutput(appData);
