@@ -17,7 +17,7 @@ let appData = {
     asking: function () {
         let dialogCall = 0;
         let expenceName,
-            expenceValue;;
+            expenceValue;
 
         let addExpencesInput = prompt( 'Перечислите возможные статьи расходов за рассчитываемый период через запятую:' );
         appData.addExpenсes = addExpencesInput.toLowerCase().split(', ');
