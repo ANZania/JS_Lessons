@@ -25,9 +25,10 @@ let appData = {
         if ( dialogCall === 0 ) {
             for ( let i = 0; i < 2; i++ ) {
                 expenceName = prompt( 'Введите обязательную статью расходов:' );
-                do {
+                while ( !isNumber( appData.expences[ expenceName ] ) ) {
                     appData.expences[ expenceName ] = prompt( 'Во сколько это обойдётся?' );
-                }   while ( !isNumber( appData.expences[ expenceName ] ) );
+                };
+                appData.expences[ expenceName ] = +appData.expences[ expenceName ];
                 dialogCall = 1;
             };
         };
@@ -75,7 +76,11 @@ function start () {
     return +money;
 };
 function isNumber ( n ) {
-    return !isNaN( parseFloat( n ) ) && isFinite( n );
+    if ( ('' + n).trim().length == 0 ) {
+        return false;
+    } else {
+        return !isNaN( parseInt( n ) ) && isFinite( n );
+    };
 };
 
 const appDataOutput = function () {
