@@ -4,8 +4,8 @@
 const headerInput = document.querySelector('.header-input');
 const todoContainer = document.querySelector('.todo-container');
 const todoControl = document.querySelector('.todo-control');
-const todoList = document.querySelector('.todo-list');
-const todoComplited = document.querySelector('.todo-complited');
+const todoList = document.getElementById('todo');
+const todoComplited = document.getElementById('completed');
 
 const todoData = [
     {
@@ -33,7 +33,7 @@ const render = function () {
             '</div>';
 
         if (item.complited) {
-            todoComplited.add(li);
+            todoComplited.addend(li);
         } else {
             todoList.append(li);
         }
