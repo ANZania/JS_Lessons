@@ -5,50 +5,67 @@ const headerInput = document.querySelector('.header-input');
 const todoContainer = document.querySelector('.todo-container');
 const todoControl = document.querySelector('.todo-control');
 const todoList = document.getElementById('todo');
-const todoComplited = document.getElementById('completed');
+const todoCompleted = document.getElementById('completed');
 
-const todoData = [
-    {
-        value: 'Сварить кофе',
-        complited: false
-    },
-    {
-        value: 'Помыть посуду',
-        complited: true
-    }
-];
+let todoData = JSON.parse(localStorage.getItem('todoData'));
+if (todoData === null) {
+    todoData = [];
+};
 
 const render = function () {
     todoList.textContent = '';
-    todoComplited.textContent = '';
+    todoCompleted.textContent = '';
 
     todoData.forEach( function(item) {
         const li = document.createElement('li');
         li.classList.add('todo-item');
 
-        li.innerHTML = '<span class="text-todo">' + item.value +'</span>' +
-            '<div class="todo-buttons"></div>' +
-            '<button class="todo-remove"></button>' +
-            '<button class="todo-complete"></button>' +
-            '</div>';
+        li.innerHTML = `<span class="text-todo">${item.value}</span>
+        <div class="todo-buttons">
+        <button class="todo-remove"></button>
+        <button class="todo-complete"></button>
+        </div>
+        `;
 
-        if (item.complited) {
-            todoComplited.addend(li);
+        if (item.completed) {
+            todoCompleted.append(li);
         } else {
             todoList.append(li);
-        }
+        };
+
+        const todoComplete = li.querySelector('.todo-complete');
+
+        todoComplete.addEventListener('click', function () {
+            item.completed = !item.completed;
+            localStorage.setItem('todoData', JSON.stringify(todoData));
+            render();
+        });
+
+        const todoRemove = li.querySelector('.todo-remove');
+
+        todoRemove.addEventListener('click', function () {
+            todoData = todoData.filter(function (elem) {
+                if (elem.value !== item.value) {
+                    return elem;
+                };
+            });
+            localStorage.setItem('todoData', JSON.stringify(todoData));
+            render();
+        });
     });
 };
 
 todoControl.addEventListener( 'submit', function (event) {
     event.preventDefault();
-
-    const newTodo = {
-        value: headerInput.value,
-        complited: false
-    }
-    todoData.push(newTodo);
-
+    if (headerInput.value.trim() !== '') {
+        const newTodo = {
+            value: headerInput.value,
+            completed: false
+        }
+        todoData.push(newTodo);
+        headerInput.value = '';
+    };
+    localStorage.setItem('todoData', JSON.stringify(todoData));
     render();
 } );
 
