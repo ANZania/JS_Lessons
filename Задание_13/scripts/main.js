@@ -86,6 +86,7 @@ let appData = {
             };
         };
         
+        this.resetAppDataProp();
         this.toggleButton();
     },
     toggleButton: function () {
@@ -229,6 +230,20 @@ let appData = {
         } else {
             calculateButton.disabled = false;
         }
+    },
+    resetAppDataProp: function () {
+        this.budget = 0;
+        this.income = {};
+        this.addIncome = [];
+        this.incomeMonth = 0;
+        this.expences = {};
+        this.addExpenсes = [];
+        this.deposit = false;
+        this.percentDeposit = 0;
+        this.moneyDeposit = 0;
+        this.budgetDay = 0;
+        this.budgetMonth = 0;
+        this.expencesMonth = 0;
     }
 };
 const getStartDisabled  = function() {
