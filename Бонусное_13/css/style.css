@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+.content-block {
+    width: 120px;
+    margin: auto;
+}
+.new-color {
+    width: 100%;
+}
