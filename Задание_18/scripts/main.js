@@ -3,9 +3,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //Timer
     const countTimer (deadline) => {
-        let timerHours = document.querySelector('#timer-hours'),
-            timerMinutes = document.querySelector('#timer-minutes'),
-            timerSeconds = document.querySelector('#timer-seconds'); 
+        let timerHours = document.getElementById('timer-hours'),
+            timerMinutes = document.getElementById('timer-minutes'),
+            timerSeconds = document.getElementById('timer-seconds'); 
 
         const getTimeRemaining () => {
             let dateStop = new Date(deadline).getTime(),
