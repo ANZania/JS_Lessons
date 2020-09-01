@@ -1,9 +1,9 @@
 'use strict'
 
-const greeting = document.querySelector('#greeting');
-const currentDay = document.querySelector('#current-day');
-const currentTime = document.querySelector('#current-time');
-const newYearTimer = document.querySelector('#new-year-timer');
+const greeting = document.getElementById('greeting');
+const currentDay = document.getElementById('current-day');
+const currentTime = document.getElementById('current-time');
+const newYearTimer = document.getElementById('new-year-timer');
 
 
 const strDay = ['День', 'Дня', 'Дней'];
@@ -15,12 +15,7 @@ const start = () => {
     const date = new Date();
     let days = getTimeRemaining();
 
-    greeting.textContent = getGreeting();
-    currentDay.textContent = date.toLocaleString('ru', options)[0].toUpperCase() + date.toLocaleString('ru', options).substr(1);
-    currentTime.textContent = format(date);
-    newYearTimer.textContent = days + ' ' + dayFormat(days, strDay);
-
-    function getGreeting () {
+    const getGreeting () => {
         if (date.getHours() > 5 && date.getHours() < 11) {
             return 'Доброе утро!';
 
@@ -35,17 +30,17 @@ const start = () => {
           }
     }
 
-    function addZero (number) {
+    const addZero (number) => {
         if (number < 10) {
             number = '0' + number;
         };
         return number;
     }
 
-    function format(date) {
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        let seconds = date.getSeconds();
+    const format(date) => {
+        let hours = date.getHours(),
+            minutes = date.getMinutes(),
+            seconds = date.getSeconds();
 
         let ampm = hours >= 12 ? 'PM' : 'AM';
 
@@ -57,7 +52,7 @@ const start = () => {
         return strTime;
     }
 
-    function getTimeRemaining () {
+    const getTimeRemaining () => {
         let dateStop = new Date('1 Jan 2021').getTime(),
             dateNow = new Date().getTime(),
             timeRemaining = (dateStop - dateNow) / 1000,
@@ -65,7 +60,7 @@ const start = () => {
         return days;
     }
      
-    function dayFormat(num, textForms) {
+    const dayFormat(num, textForms) =>{
         num = Math.abs(num) % 100; 
         let newNum = num % 10;
 
@@ -74,7 +69,13 @@ const start = () => {
         if (newNum == 1) { return textForms[0]; }
         
         return textForms[2];
-    }
+    }   
+    
+
+    greeting.textContent = getGreeting();
+    currentDay.textContent = date.toLocaleString('ru', options)[0].toUpperCase() + date.toLocaleString('ru', options).substr(1);
+    currentTime.textContent = format(date);
+    newYearTimer.textContent = days + ' ' + dayFormat(days, strDay);
     
 };
 
