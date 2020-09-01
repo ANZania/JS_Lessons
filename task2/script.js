@@ -15,7 +15,7 @@ const start = () => {
     const date = new Date();
     let days = getTimeRemaining();
 
-    const getGreeting () => {
+    const getGreeting = () => {
         if (date.getHours() > 5 && date.getHours() < 11) {
             return 'Доброе утро!';
 
@@ -30,14 +30,14 @@ const start = () => {
           }
     }
 
-    const addZero (number) => {
+    const addZero = (number) => {
         if (number < 10) {
             number = '0' + number;
         };
         return number;
     }
 
-    const format(date) => {
+    const format =(date) => {
         let hours = date.getHours(),
             minutes = date.getMinutes(),
             seconds = date.getSeconds();
@@ -52,7 +52,7 @@ const start = () => {
         return strTime;
     }
 
-    const getTimeRemaining () => {
+    const getTimeRemaining = () => {
         let dateStop = new Date('1 Jan 2021').getTime(),
             dateNow = new Date().getTime(),
             timeRemaining = (dateStop - dateNow) / 1000,
@@ -60,7 +60,7 @@ const start = () => {
         return days;
     }
      
-    const dayFormat(num, textForms) =>{
+    const dayFormat = (num, textForms) =>{
         num = Math.abs(num) % 100; 
         let newNum = num % 10;
 
