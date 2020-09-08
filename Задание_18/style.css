@@ -1,0 +1,27 @@
+.car {
+    position: absolute;
+    z-index: 99999;
+    transform: scale(-1, 1);
+    top: 100px;
+    height: 150px;
+}
+
+.road {
+    position: absolute;
+    z-index: -1;
+    top: 160px;
+    width: 100%;
+    height: 100px;
+} 
+
+.start {
+    margin-top: 300px;
+}
+button {
+    height: 90px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    background-color: #F28BE0;
+}
