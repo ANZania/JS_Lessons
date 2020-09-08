@@ -51,6 +51,9 @@ const resetAnimation = () => {
     car.style.left = counter + 'px';
     audio.pause();
     audio.currentTime = 0;
+     if (animStartCounter % 2 === 0) {
+         animStartCounter++;
+     };
 }
 
 
