@@ -1,0 +1,204 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    outline: none;
+}
+
+.container {
+    width: 1220px;
+    margin: auto;
+}
+
+.header {
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    /*background-color: black;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.name-gender {
+    margin-left: 8px;
+}
+
+.header-button {
+    padding-left: 10px;
+    height: 100%;
+    background: #11B8FF;
+    border: none;
+}
+
+img[alt=arrow] {
+    vertical-align: middle;
+}
+
+.date-input {
+    width: 40px;
+}
+
+.name {
+    margin-right: 10px;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.choose {
+    display: flex;
+    align-items: center;
+}
+
+.mini-name {
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.from {
+    margin-right: 5px;
+}
+
+.to {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+input[name=gender] {
+    margin-right: 5px;
+    margin-left: 3px;
+}
+
+select { 
+    height: 16px;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+input[type=text] {
+    height: 14px;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.catalog-heroes {
+    margin-left: 0;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+.list-title {
+    /*background-color: blanchedalmond;*/
+    display: block;
+    width: 40%;
+}
+
+.list-value {
+    /*background-color: blanchedalmond;*/
+    display: block;
+    width: 56%;
+    padding-right: 15px;
+}
+
+.hero-list {
+    /*background-color: brown;*/
+    margin: auto;
+    display: flex;
+    width: 95%;
+    /*margin-top: 100px;*/
+}
+
+.img-hero {
+    width: 240px;
+    height: 326px;
+    margin-right: 12px;
+}
+
+.card-hero {
+    width: 600px;
+    height: 326px;
+    display: flex;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    /*background-color: blue;*/
+}
+
+.header-hero {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.date-hero {
+    /*background-color: brown;*/
+    width: 30%;
+    height: 26px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.hero-name {
+    /*background-color: burlywood;*/
+    width: 70%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    margin-top: 10px;
+    margin-bottom: 18px;
+}
+
+.title-hero {
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.value-hero {
+    margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 21px;
+}
+
+.info-hero {
+    width: 100%;
+}
+
+.films-hero-value {
+    margin-bottom: 5px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.real-name-hero-value {
+    /*overflow-x: scroll;*/
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    height: 21px;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
